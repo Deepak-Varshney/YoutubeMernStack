@@ -4,12 +4,10 @@ const VideoSchema = new Schema({
     title:{
         type:String,
         required: true,
-        unique: true,
     },
     userId:{
         type:String,
         required: true,
-        unique: true,
     },
     desc:{
         type:String,
@@ -41,4 +39,6 @@ const VideoSchema = new Schema({
     }
 },{timestamps:true})
 
-export default mongoose.model("User", VideoSchema)
+const Video = mongoose.models.Video || mongoose.model("Video", VideoSchema);
+
+export default Video;

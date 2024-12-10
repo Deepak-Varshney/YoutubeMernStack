@@ -1,30 +1,32 @@
-import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
+// Define the schema for the User model
 const UserSchema = new Schema({
-    username:{
-        type:String,
-        required: true,
-        unique: true,
-    },
-    email:{
-        type:String,
-        required: true,
-        unique: true,
-    },
-    password:{
-        type:String,
-        required: true,
-    },
-    img:{
-        type:String,
-    },
-    subscribers:{
-        type:Number,
-        default: 0
-    },
-    subscribedUsers:{
-        type:[String],
-    }
-},{timestamps:true})
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  img: {
+    type: String,
+  },
+  subscribers: {
+    type: Number,
+    default: 0,
+  },
+  subscribedUsers: {
+    type: [String],
+  }
+}, { timestamps: true });
 
-export default mongoose.model("User", UserSchema)
+const User = mongoose.models.User || mongoose.model("User", UserSchema);
+export default User;

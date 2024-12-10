@@ -14,5 +14,6 @@ const CommentSchema = new Schema({
         required: true,
     }
 },{timestamps:true})
+const Comment = mongoose.models.COmment || mongoose.model("Comment", CommentSchema);
 
-export default mongoose.model("User", CommentSchema)
+export default Comment;
